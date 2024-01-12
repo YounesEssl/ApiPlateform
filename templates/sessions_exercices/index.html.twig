@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}SessionsExercices index{% endblock %}
+
+{% block body %}
+    <h1>SessionsExercices index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>UtilisateurID</th>
+                <th>ExerciceID</th>
+                <th>Date</th>
+                <th>RepetitionsNombre</th>
+                <th>SeriesNombres</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for sessions_exercice in sessions_exercices %}
+            <tr>
+                <td>{{ sessions_exercice.id }}</td>
+                <td>{{ sessions_exercice.utilisateurID }}</td>
+                <td>{{ sessions_exercice.exerciceID }}</td>
+                <td>{{ sessions_exercice.date ? sessions_exercice.date|date('Y-m-d') : '' }}</td>
+                <td>{{ sessions_exercice.repetitionsNombre }}</td>
+                <td>{{ sessions_exercice.seriesNombres }}</td>
+                <td>
+                    <a href="{{ path('app_sessions_exercices_show', {'id': sessions_exercice.id}) }}">show</a>
+                    <a href="{{ path('app_sessions_exercices_edit', {'id': sessions_exercice.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_sessions_exercices_new') }}">Create new</a>
+{% endblock %}

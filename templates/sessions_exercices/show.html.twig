@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}SessionsExercices{% endblock %}
+
+{% block body %}
+    <h1>SessionsExercices</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ sessions_exercice.id }}</td>
+            </tr>
+            <tr>
+                <th>UtilisateurID</th>
+                <td>{{ sessions_exercice.utilisateurID }}</td>
+            </tr>
+            <tr>
+                <th>ExerciceID</th>
+                <td>{{ sessions_exercice.exerciceID }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{{ sessions_exercice.date ? sessions_exercice.date|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>RepetitionsNombre</th>
+                <td>{{ sessions_exercice.repetitionsNombre }}</td>
+            </tr>
+            <tr>
+                <th>SeriesNombres</th>
+                <td>{{ sessions_exercice.seriesNombres }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_sessions_exercices_index') }}">back to list</a>
+
+    <a href="{{ path('app_sessions_exercices_edit', {'id': sessions_exercice.id}) }}">edit</a>
+
+    {{ include('sessions_exercices/_delete_form.html.twig') }}
+{% endblock %}

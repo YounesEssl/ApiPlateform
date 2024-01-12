@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription{% endblock %}
+
+{% block body %}
+<h2>Inscription</h2>
+{{ form_start(inscriptionForm) }}
+    {{ form_row(inscriptionForm.nom) }}
+    {{ form_row(inscriptionForm.email) }}
+    {{ form_row(inscriptionForm.motDePasse) }}
+    <button type="submit">S'inscrire</button>
+{{ form_end(inscriptionForm) }}
+{% endblock %}

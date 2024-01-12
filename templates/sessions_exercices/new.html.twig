@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New SessionsExercices{% endblock %}
+
+{% block body %}
+    <h1>Create new SessionsExercices</h1>
+
+    {{ include('sessions_exercices/_form.html.twig') }}
+
+    <a href="{{ path('app_sessions_exercices_index') }}">back to list</a>
+{% endblock %}
